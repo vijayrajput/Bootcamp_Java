@@ -24,6 +24,9 @@ public class Analytic implements Serializable {
 	@Column(name = "\"Count\"")
 	private int Count;
 	
+	@ManyToOne
+	private Job job;
+	
 	private static final long serialVersionUID = 1L;
 
 	public Analytic() {
@@ -50,5 +53,12 @@ public class Analytic implements Serializable {
 	public void setCount(int Count) {
 		this.Count = Count;
 	}
+	public Job getJob() {
+		return job;
+	}
+	public void setJob(Job job) {
+		this.job = job;
+	}
+	
    
 }

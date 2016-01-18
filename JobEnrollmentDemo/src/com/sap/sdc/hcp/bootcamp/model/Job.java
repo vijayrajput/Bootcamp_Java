@@ -3,6 +3,9 @@ package com.sap.sdc.hcp.bootcamp.model;
 import java.io.Serializable;
 import java.lang.String;
 import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.*;
 
 /**
@@ -28,6 +31,11 @@ public class Job implements Serializable {
 	private Timestamp CREATED_ON; 
 	@Column(name = "\"CREATED_BY\"", nullable = true, length = 10) 
 	private String CREATED_BY; 
+	
+	@OneToMany(mappedBy="job") 
+	private List<Enrollment> enrollment;
+	@OneToMany(mappedBy="job") 
+	private List<Analytic> analytic;
 	
 
 	public Job() {
@@ -73,5 +81,26 @@ public class Job implements Serializable {
 	public void setCREATED_BY(String cREATED_BY) {
 		CREATED_BY = cREATED_BY;
 	}
+	public List<Enrollment> getEnrollment() {
+		return enrollment;
+	}
+	public void setEnrollment(List<Enrollment> enrollment) {
+		this.enrollment = enrollment;
+	}
+	public List<Analytic> getAnalytic() {
+		return analytic;
+	}
+	public void setAnalytic(List<Analytic> analytic) {
+		this.analytic = analytic;
+	}
+	
+	public void addEnrollment (Enrollment param){
+		if (this.enrollment == null)
+		{
+			this.enrollment = new ArrayList<Enrollment>();
+		}
+		this.enrollment.add(param);
+	}
+	
    
 }

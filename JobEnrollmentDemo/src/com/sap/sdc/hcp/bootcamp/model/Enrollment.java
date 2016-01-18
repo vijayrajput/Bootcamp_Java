@@ -34,6 +34,9 @@ public class Enrollment implements Serializable {
 	@Column(name = "\"APPLIED_ON\"")
 	private Timestamp APPLIED_ON;
 	
+	@ManyToOne
+	private Job job;
+	
 	private static final long serialVersionUID = 1L;
 
 	public Enrollment() {
@@ -84,7 +87,12 @@ public class Enrollment implements Serializable {
 	public void setAPPLIED_ON(Timestamp aPPLIED_ON) {
 		APPLIED_ON = aPPLIED_ON;
 	}
-	
-	
+	public Job getJob() {
+		return job;
+	}
+	public void setJob(Job job) {
+		this.job = job;
+	}
+		
    
 }
