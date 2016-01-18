@@ -9,7 +9,7 @@ import javax.persistence.*;
  *
  */
 @Entity
-@Table(name="\"i044067trial.bootcamphana.Model/CV_LOCATION_COUNT\"")
+@Table(name="\"i044067trial.bootcamphana.Model/CV_LOCATION_COUNT\"", schema ="\"_SYS_BIC\"")
 
 @IdClass(AnalyticPK.class)
 public class Analytic implements Serializable {
