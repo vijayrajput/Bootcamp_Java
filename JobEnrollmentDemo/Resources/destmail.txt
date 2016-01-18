@@ -1,0 +1,11 @@
+#mail.password=<< Existing password removed on Export >>
+#
+#Mon Dec 14 15:27:24 UTC 2015
+Type=MAIL
+mail.description=Destination for mail
+mail.user=hcpdemotest@gmail.com
+mail.transport.protocol=smtps
+Name=destmail
+mail.smtps.host=smtp.gmail.com
+mail.smtps.port=465
+mail.smtps.auth=true

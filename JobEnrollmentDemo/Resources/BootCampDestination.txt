@@ -1,0 +1,13 @@
+#
+#Thu Sep 03 06:39:36 UTC 2015
+Description=Destination for BootCamp Hands-on
+Type=HTTP
+TrustAll=true
+Authentication=AppToAppSSO
+WebIDEUsage=odata_gen
+Name=BootCampDestination
+WebIDEEnabled=true
+CloudConnectorVersion=2
+URL=https\://bootcampi044067trial.hanatrial.ondemand.com
+ProxyType=Internet
+WebIDESystem=Bootcamp Java Application

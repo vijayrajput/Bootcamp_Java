@@ -34,4 +34,12 @@
     <res-ref-name>EcmService</res-ref-name>
     <res-type>com.sap.ecm.api.EcmService</res-type>
   </resource-ref>
+  <resource-ref>
+    <res-ref-name>connectivity/DestinationFactory</res-ref-name>
+    <res-type>com.sap.core.connectivity.api.DestinationFactory</res-type>
+  </resource-ref>
+  <resource-ref>
+    <res-ref-name>connectivityConfiguration</res-ref-name>
+    <res-type>com.sap.core.connectivity.api.configuration.ConnectivityConfiguration</res-type>
+  </resource-ref>
 </web-app>
