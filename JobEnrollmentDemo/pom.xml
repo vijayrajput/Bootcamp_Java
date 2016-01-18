@@ -21,14 +21,14 @@
 			<artifactId>eclipselink</artifactId>
 			<version>${eclipselink-version}</version>
 		</dependency>
-		
+
 		<!-- Joda Time Dependency -->
 		<dependency>
 			<groupId>joda-time</groupId>
 			<artifactId>joda-time</artifactId>
 			<version>${joda.time.version}</version>
 		</dependency>
-		
+
 		<!-- Apache Olingo Dependency -->
 
 		<dependency>
@@ -61,7 +61,7 @@
 			<artifactId>olingo-odata2-api-annotation</artifactId>
 			<version>${org.apache.olingo-version}</version>
 		</dependency>
-		
+
 		<!-- FileUpload Dependency -->
 		<dependency>
 			<groupId>commons-fileupload</groupId>
@@ -73,13 +73,22 @@
 	</dependencies>
 	<build>
 		<sourceDirectory>src</sourceDirectory>
+		<finalName>${project.artifactId}</finalName>
+		<resources>
+			<resource>
+				<directory>src</directory>
+				<excludes>
+					<exclude>**/*.java</exclude>
+				</excludes>
+			</resource>
+		</resources>
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.3</version>
 				<configuration>
-					<source>1.7</source>
-					<target>1.7</target>
+					<source>${jdk.version}</source>
+					<target>${jdk.version}</target>
 				</configuration>
 			</plugin>
 			<plugin>
@@ -88,6 +97,39 @@
 				<configuration>
 					<warSourceDirectory>WebContent</warSourceDirectory>
 					<failOnMissingWebXml>false</failOnMissingWebXml>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>com.sap.cloud</groupId>
+				<artifactId>neo-java-web-maven-plugin</artifactId>
+				<version>${sap.hcp.sdk.version}</version>
+				<configuration>
+					<!-- Location of the SAP HANA Cloud Platform SDK -->
+					<sdkInstallPath>${project.build.directory}/sdk</sdkInstallPath>
+
+					<!-- WAR of the application under test -->
+
+					<source>${project.build.directory}/${project.artifactId}.war</source>
+
+					<!-- Configuration for local server -->
+					<location>${sdkInstallPath}/server</location>
+
+					<!-- Configuration for cloud deployment -->
+					<host>${sap.cloud.host}</host>
+
+					<mavenSettingsServerId>sap-hana-cloud-credentials</mavenSettingsServerId>
+
+					<account>${sap.cloud.account}</account>
+					<application>${sap.cloud.application}</application>
+					<!-- <dataSource>${sap.cloud.datasource}</dataSource> -->
+					<id>${sap.cloud.DBSchema}</id>
+					<javaVersion>${jdk.version}</javaVersion>
+					<runtimeVersion>${sap.hcp.runtime.version}</runtimeVersion>
+					<!-- <consoleHttpProxyHost>${proxy.host}</consoleHttpProxyHost>
+					<consoleHttpProxyPort>${proxy.port}</consoleHttpProxyPort>
+					<consoleHttpsProxyHost>${proxy.host}</consoleHttpsProxyHost>
+					<consoleHttpsProxyPort>${proxy.port}</consoleHttpsProxyPort>  -->
+					<synchronous>true</synchronous>
 				</configuration>
 			</plugin>
 		</plugins>
@@ -100,7 +142,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<sap.cloud.host>hanatrial.ondemand.com</sap.cloud.host>
 		<sap.cloud.account>i044067trial</sap.cloud.account>
-		<sap.cloud.application>jobs</sap.cloud.application>
+		<sap.cloud.application>google</sap.cloud.application>
 		<joda.time.version>2.9.1</joda.time.version>
 		<org.apache.olingo-version>2.0.5</org.apache.olingo-version>
 		<eclipselink-version>2.6.2</eclipselink-version>
