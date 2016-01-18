@@ -61,6 +61,13 @@
 			<artifactId>olingo-odata2-api-annotation</artifactId>
 			<version>${org.apache.olingo-version}</version>
 		</dependency>
+		
+		<!-- FileUpload Dependency -->
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>1.3.1</version>
+		</dependency>
 
 
 	</dependencies>

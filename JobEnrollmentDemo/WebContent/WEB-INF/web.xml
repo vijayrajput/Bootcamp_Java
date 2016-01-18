@@ -9,7 +9,7 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
-    <servlet>
+  <servlet>
     <servlet-name>JPARefScenarioServlet</servlet-name>
     <servlet-class>org.apache.cxf.jaxrs.servlet.CXFNonSpringJaxrsServlet</servlet-class>
     <init-param>
@@ -29,5 +29,9 @@
   <resource-ref>
     <res-ref-name>jdbc/DefaultDB</res-ref-name>
     <res-type>javax.sql.DataSource</res-type>
+  </resource-ref>
+  <resource-ref>
+    <res-ref-name>EcmService</res-ref-name>
+    <res-type>com.sap.ecm.api.EcmService</res-type>
   </resource-ref>
 </web-app>
