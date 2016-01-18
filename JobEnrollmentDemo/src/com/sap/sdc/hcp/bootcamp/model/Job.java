@@ -9,6 +9,7 @@ import java.util.List;
 import javax.persistence.*;
 
 import org.joda.time.DateTime;
+import org.joda.time.Duration;
 
 /**
  * Entity implementation class for Entity: Job
@@ -33,6 +34,11 @@ public class Job implements Serializable {
 	private Timestamp CREATED_ON; 
 	@Column(name = "\"CREATED_BY\"", nullable = true, length = 10) 
 	private String CREATED_BY; 
+	
+	@Transient
+	private int remainingTime;
+	@Transient
+	private String remainingTimeUnit;
 	
 	@OneToMany(mappedBy="job") 
 	private List<Enrollment> enrollment;
@@ -109,6 +115,44 @@ public class Job implements Serializable {
 		DateTime currentDate = new DateTime();
 		setCREATED_ON(new Timestamp(currentDate.getMillis()));
 	}
+	public int getRemainingTime() {
+		DateTime currentDate = new DateTime();
+		int days = 0;
+		Duration duration = null;
+		try{
+			duration = new Duration(currentDate,new DateTime(this.getVALID_TILL().getTime()));
+		}catch(Exception ex)
+		{
+			return days;
+		}
+		days = (int) duration.getStandardDays();
+		return days;
+	}
+	public void setRemainingTime(int remainingTime) {
+		this.remainingTime = remainingTime;
+	}
+	public String getRemainingTimeUnit() {
+		String unit = null; 
+		int day = getRemainingTime();
+		if(day > 1)
+		{
+			unit = new String("Days");
+		}
+		else if (day > 0)
+		{
+			unit = new String("Day");
+		}
+		else
+		{
+			unit = new String("Expired");
+		}
+		return unit;
+	}
+	public void setRemainingTimeUnit(String remainingTimeUnit) {
+		this.remainingTimeUnit = remainingTimeUnit;
+	}
+	
+	
 	
    
 }

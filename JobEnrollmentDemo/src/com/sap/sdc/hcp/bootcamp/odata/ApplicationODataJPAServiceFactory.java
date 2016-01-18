@@ -11,6 +11,7 @@ import javax.sql.DataSource;
 import org.apache.olingo.odata2.jpa.processor.api.ODataJPAContext;
 import org.apache.olingo.odata2.jpa.processor.api.ODataJPAServiceFactory;
 import org.apache.olingo.odata2.jpa.processor.api.exception.ODataJPARuntimeException;
+import org.apache.olingo.odata2.jpa.processor.api.model.JPAEdmExtension;
 import org.eclipse.persistence.config.PersistenceUnitProperties;
 
 public class ApplicationODataJPAServiceFactory extends ODataJPAServiceFactory {
@@ -33,6 +34,8 @@ public class ApplicationODataJPAServiceFactory extends ODataJPAServiceFactory {
 		oDataJPAContext.setEntityManagerFactory(Persistence
 				.createEntityManagerFactory(PUNIT_NAME, properties));
 		oDataJPAContext.setPersistenceUnitName(PUNIT_NAME);
+		oDataJPAContext.setJPAEdmExtension((JPAEdmExtension) new JobEnrollmentProcessingExtension());
+		
 		}
 		catch (NamingException e) {
             //throw new ServletException(e);
