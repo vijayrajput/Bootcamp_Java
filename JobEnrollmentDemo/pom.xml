@@ -1,0 +1,65 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.sap.sdc.hcp.demo</groupId>
+	<artifactId>JobEnrollmentDemo</artifactId>
+	<version>0.0.1</version>
+	<packaging>war</packaging>
+	<dependencies>
+
+		<!-- SAP HCP SDK Dependency -->
+		<dependency>
+			<groupId>com.sap.cloud</groupId>
+			<artifactId>neo-java-web-api</artifactId>
+			<version>${sap.hcp.sdk.version}</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- Eclipse Link Dependency -->
+		<dependency>
+			<groupId>org.eclipse.persistence</groupId>
+			<artifactId>eclipselink</artifactId>
+			<version>${eclipselink-version}</version>
+		</dependency>
+
+
+	</dependencies>
+	<build>
+		<sourceDirectory>src</sourceDirectory>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.3</version>
+				<configuration>
+					<source>1.7</source>
+					<target>1.7</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.6</version>
+				<configuration>
+					<warSourceDirectory>WebContent</warSourceDirectory>
+					<failOnMissingWebXml>false</failOnMissingWebXml>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	<properties>
+		<jdk.version>1.7</jdk.version>
+		<sap.hcp.sdk.version>1.93.13.3</sap.hcp.sdk.version>
+		<sap.hcp.runtime.version>1.93</sap.hcp.runtime.version>
+		<org.apache.cxf-version>3.1.4</org.apache.cxf-version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<sap.cloud.host>hanatrial.ondemand.com</sap.cloud.host>
+		<sap.cloud.account>i044067trial</sap.cloud.account>
+		<sap.cloud.application>jobs</sap.cloud.application>
+		<joda.time.version>2.9.1</joda.time.version>
+		<org.apache.olingo-version>2.0.5</org.apache.olingo-version>
+		<eclipselink-version>2.6.2</eclipselink-version>
+		<sap.cloud.datasource>DefaultDB</sap.cloud.datasource>
+		<sap.cloud.DBSchema>bootcamphana</sap.cloud.DBSchema>
+		<proxy.host>proxy</proxy.host>
+		<proxy.port>8080</proxy.port>
+	</properties>
+</project>
