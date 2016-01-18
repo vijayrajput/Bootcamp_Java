@@ -8,6 +8,8 @@ import java.util.List;
 
 import javax.persistence.*;
 
+import org.joda.time.DateTime;
+
 /**
  * Entity implementation class for Entity: Job
  *
@@ -100,6 +102,12 @@ public class Job implements Serializable {
 			this.enrollment = new ArrayList<Enrollment>();
 		}
 		this.enrollment.add(param);
+	}
+	
+	@PrePersist
+	private void onInsert() {
+		DateTime currentDate = new DateTime();
+		setCREATED_ON(new Timestamp(currentDate.getMillis()));
 	}
 	
    

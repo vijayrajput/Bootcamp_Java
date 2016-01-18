@@ -21,6 +21,13 @@
 			<artifactId>eclipselink</artifactId>
 			<version>${eclipselink-version}</version>
 		</dependency>
+		
+		<!-- Joda Time Dependency -->
+		<dependency>
+			<groupId>joda-time</groupId>
+			<artifactId>joda-time</artifactId>
+			<version>${joda.time.version}</version>
+		</dependency>
 
 
 	</dependencies>
