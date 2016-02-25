@@ -87,8 +87,8 @@
 	</build>
 	<properties>
 		<jdk.version>1.7</jdk.version>
-		<sap.hcp.sdk.version>1.93.13.3</sap.hcp.sdk.version>
-		<sap.hcp.runtime.version>1.93</sap.hcp.runtime.version>
+		<sap.hcp.sdk.version>1.96.21</sap.hcp.sdk.version>
+		<sap.hcp.runtime.version>1.96</sap.hcp.runtime.version>
 		<org.apache.cxf-version>3.1.4</org.apache.cxf-version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<sap.cloud.host>hanatrial.ondemand.com</sap.cloud.host>
