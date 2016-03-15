@@ -43,11 +43,14 @@ public class GetUserAttributes extends HttpServlet {
 
 			    
 			    UserDetails ud = new UserDetails();
-			    ud.setName(user.getAttribute("id"));
-			    ud.setFirstName(user.getAttribute("firstName"));
-			    ud.setLastname(user.getAttribute("lastName"));
+			    ud.setName(request.getUserPrincipal().getName());
+			    ud.setFirstName(user.getAttribute("firstname"));
+			    ud.setLastname(user.getAttribute("lastname"));
 			    ud.setEmail(user.getAttribute("email"));
-			    ud.setCountry(user.getAttribute("country"));
+			    if(user.getAttribute("country") != null )
+			    	ud.setCountry(user.getAttribute("country"));
+			    else
+			    	ud.setCountry("IN");
 			    
 		
 			    Gson gson = new Gson();
