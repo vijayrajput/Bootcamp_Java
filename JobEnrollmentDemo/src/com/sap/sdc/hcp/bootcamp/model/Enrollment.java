@@ -11,7 +11,7 @@ import javax.persistence.*;
  *
  */
 @Entity
-@Table(name="\"i044067trial.bootcamphana.DB::ENROLLMENT\"")
+@Table(name = "\"SYSTEM\".\"bootcamp.DB::JobModel.Enrollment\"")
 
 @IdClass(EnrollmentPK.class)
 public class Enrollment implements Serializable {
