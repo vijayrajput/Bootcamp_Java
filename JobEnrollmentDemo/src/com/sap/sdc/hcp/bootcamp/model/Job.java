@@ -29,9 +29,9 @@ public class Job implements Serializable {
 	private String DEPARTMENT; 
 	@Column(name = "\"VALID_TILL\"") 
 	private Timestamp VALID_TILL; 
-	@Column(name = "\"CREATED_ON\"") 
+	@Column(name = "\"SYSTEM.CREATED_ON\"") 
 	private Timestamp CREATED_ON; 
-	@Column(name = "\"CREATED_BY\"", nullable = true, length = 10) 
+	@Column(name = "\"SYSTEM.CREATED_BY\"", nullable = true, length = 10)
 	private String CREATED_BY; 
 	
 	@OneToMany(mappedBy="job") 
