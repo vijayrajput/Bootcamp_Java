@@ -31,8 +31,10 @@ public class Enrollment implements Serializable {
 	private String EMAIL;
 	@Column(name = "\"LOCATION\"", nullable = true, length = 50)
 	private String LOCATION;
-	@Column(name = "\"APPLIED_ON\"")
-	private Timestamp APPLIED_ON;
+	@Column(name = "\"SYSTEM.CREATED_ON\"")
+	private Timestamp CREATED_ON;
+	@Column(name = "\"SYSTEM.CREATED_BY\"", length = 10)
+	private String CREATED_BY;
 	
 	@ManyToOne
 	private Job job;
@@ -81,11 +83,22 @@ public class Enrollment implements Serializable {
 	public void setLOCATION(String lOCATION) {
 		LOCATION = lOCATION;
 	}
-	public Timestamp getAPPLIED_ON() {
-		return APPLIED_ON;
+	public Timestamp getCREATED_ON() {
+		return CREATED_ON;
 	}
-	public void setAPPLIED_ON(Timestamp aPPLIED_ON) {
-		APPLIED_ON = aPPLIED_ON;
+
+	public void setCREATED_ON(Timestamp cREATED_ON) {
+		CREATED_ON = cREATED_ON;
+	}
+	
+	
+
+	public String getCREATED_BY() {
+		return CREATED_BY;
+	}
+
+	public void setCREATED_BY(String cREATED_BY) {
+		CREATED_BY = cREATED_BY;
 	}
 	public Job getJob() {
 		return job;
