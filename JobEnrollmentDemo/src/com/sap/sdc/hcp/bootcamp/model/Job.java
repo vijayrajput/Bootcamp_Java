@@ -10,7 +10,7 @@ import javax.persistence.*;
  *
  */
 @Entity
-@Table(name="\"i044067trial.bootcamphana.DB::JOB\"")
+@Table(name="\"SYSTEM\".\"bootcamp.DB::JobModel.Job\"")
 
 public class Job implements Serializable {
 
