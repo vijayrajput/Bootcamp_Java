@@ -15,7 +15,7 @@ import org.joda.time.DateTime;
  *
  */
 @Entity
-@Table(name="\"SYSTEM\".\"bootcamp.DB::JobModel.Job\"")
+@Table(name="\"bootcamp.DB::JobModel.Job\"")
 
 public class Job implements Serializable {
 
