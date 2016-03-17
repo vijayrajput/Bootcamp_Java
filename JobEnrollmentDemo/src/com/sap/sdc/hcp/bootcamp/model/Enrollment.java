@@ -19,7 +19,7 @@ import org.joda.time.DateTime;
  *
  */
 @Entity
-@Table(name = "\"SYSTEM\".\"bootcamp.DB::JobModel.Enrollment\"")
+@Table(name = "\"bootcamp.DB::JobModel.Enrollment\"")
 
 @IdClass(EnrollmentPK.class)
 public class Enrollment implements Serializable {
