@@ -36,31 +36,56 @@
 			<artifactId>cxf-rt-frontend-jaxrs</artifactId>
 			<version>${org.apache.cxf-version}</version>
 		</dependency>
-		<dependency>
-			<groupId>org.apache.olingo</groupId>
-			<artifactId>olingo-odata2-api</artifactId>
-			<version>${org.apache.olingo-version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.olingo</groupId>
-			<artifactId>olingo-odata2-core</artifactId>
-			<version>${org.apache.olingo-version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.olingo</groupId>
-			<artifactId>olingo-odata2-jpa-processor-api</artifactId>
-			<version>${org.apache.olingo-version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.olingo</groupId>
-			<artifactId>olingo-odata2-jpa-processor-core</artifactId>
-			<version>${org.apache.olingo-version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.olingo</groupId>
-			<artifactId>olingo-odata2-api-annotation</artifactId>
-			<version>${org.apache.olingo-version}</version>
-		</dependency>
+		
+		 <!-- Apache Olingo Library dependencies -->
+    <dependency>
+      <groupId>org.apache.olingo</groupId>
+      <artifactId>olingo-odata2-api</artifactId>
+      <version>${org.apache.olingo-version}</version>
+    </dependency>
+    <dependency>
+      <artifactId>olingo-odata2-api-annotation</artifactId>
+      <groupId>org.apache.olingo</groupId>
+      <type>jar</type>
+      <version>${org.apache.olingo-version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.olingo</groupId>
+      <artifactId>olingo-odata2-core</artifactId>
+      <version>${org.apache.olingo-version}</version>
+    </dependency>
+    
+    <!-- Apache Olingo Annotation Processor Extension dependencies -->
+    <dependency>
+      <groupId>org.apache.olingo</groupId>
+      <artifactId>olingo-odata2-annotation-processor-api</artifactId>
+      <version>${org.apache.olingo-version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.olingo</groupId>
+      <artifactId>olingo-odata2-annotation-processor-core</artifactId>
+      <version>${org.apache.olingo-version}</version>
+    </dependency>
+		
+		
+
+
+		<!-- <dependency>
+	<groupId>org.apache.olingo</groupId>
+	<artifactId>olingo-odata2-sample</artifactId>
+	<version>2.0.6</version>
+</dependency> -->
+
+<dependency>
+	<groupId>org.apache.olingo</groupId>
+	<artifactId>olingo-odata2-jpa-processor-ref</artifactId>
+	<version>2.0.6</version>
+</dependency>
+<dependency>
+	<groupId>org.apache.olingo</groupId>
+	<artifactId>olingo-odata2-annotation-processor-ref</artifactId>
+	<version>2.0.6</version>
+</dependency>
 
 		<!-- FileUpload Dependency -->
 		<dependency>
@@ -125,10 +150,8 @@
 					<id>${sap.cloud.DBSchema}</id>
 					<javaVersion>${jdk.version}</javaVersion>
 					<runtimeVersion>${sap.hcp.runtime.version}</runtimeVersion>
-					<!-- <consoleHttpProxyHost>${proxy.host}</consoleHttpProxyHost>
-					<consoleHttpProxyPort>${proxy.port}</consoleHttpProxyPort>
-					<consoleHttpsProxyHost>${proxy.host}</consoleHttpsProxyHost>
-					<consoleHttpsProxyPort>${proxy.port}</consoleHttpsProxyPort>  -->
+					<!-- <consoleHttpProxyHost>${proxy.host}</consoleHttpProxyHost> <consoleHttpProxyPort>${proxy.port}</consoleHttpProxyPort> 
+						<consoleHttpsProxyHost>${proxy.host}</consoleHttpsProxyHost> <consoleHttpsProxyPort>${proxy.port}</consoleHttpsProxyPort> -->
 					<synchronous>true</synchronous>
 				</configuration>
 			</plugin>
@@ -136,15 +159,15 @@
 	</build>
 	<properties>
 		<jdk.version>1.7</jdk.version>
-		<sap.hcp.sdk.version>1.93.13.3</sap.hcp.sdk.version>
-		<sap.hcp.runtime.version>1.93</sap.hcp.runtime.version>
+		<sap.hcp.sdk.version>1.106.11</sap.hcp.sdk.version>
+		<sap.hcp.runtime.version>1.106</sap.hcp.runtime.version>
 		<org.apache.cxf-version>3.1.4</org.apache.cxf-version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<sap.cloud.host>hanatrial.ondemand.com</sap.cloud.host>
 		<sap.cloud.account>i044067trial</sap.cloud.account>
 		<sap.cloud.application>google</sap.cloud.application>
 		<joda.time.version>2.9.1</joda.time.version>
-		<org.apache.olingo-version>2.0.5</org.apache.olingo-version>
+		<org.apache.olingo-version>2.0.6</org.apache.olingo-version>
 		<eclipselink-version>2.6.2</eclipselink-version>
 		<sap.cloud.datasource>DefaultDB</sap.cloud.datasource>
 		<sap.cloud.DBSchema>bootcamphana</sap.cloud.DBSchema>

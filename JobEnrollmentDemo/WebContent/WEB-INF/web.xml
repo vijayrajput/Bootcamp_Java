@@ -9,7 +9,7 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
-  <login-config>
+  <!-- <login-config>
     <auth-method>FORM</auth-method>
   </login-config>
   <security-constraint>
@@ -37,7 +37,7 @@
   <security-role>
     <description>Admin users</description>
     <role-name>ADMIN</role-name>
-  </security-role>
+  </security-role> -->
   <servlet>
     <servlet-name>JPARefScenarioServlet</servlet-name>
     <servlet-class>org.apache.cxf.jaxrs.servlet.CXFNonSpringJaxrsServlet</servlet-class>
@@ -47,7 +47,7 @@
     </init-param>
     <init-param>
       <param-name>org.apache.olingo.odata2.service.factory</param-name>
-      <param-value>com.sap.sdc.hcp.bootcamp.odata.ApplicationODataJPAServiceFactory</param-value>
+      <param-value>com.sap.sdc.hcp.bootcamp.odata.MyODataServiceFactory</param-value>
     </init-param>
     <load-on-startup>1</load-on-startup>
   </servlet>

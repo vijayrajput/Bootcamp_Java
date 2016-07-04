@@ -34,7 +34,7 @@ public class ApplicationODataJPAServiceFactory extends ODataJPAServiceFactory {
 		oDataJPAContext.setEntityManagerFactory(Persistence
 				.createEntityManagerFactory(PUNIT_NAME, properties));
 		oDataJPAContext.setPersistenceUnitName(PUNIT_NAME);
-		oDataJPAContext.setJPAEdmExtension((JPAEdmExtension) new JobEnrollmentProcessingExtension());
+		//oDataJPAContext.setJPAEdmExtension((JPAEdmExtension) new JobEnrollmentProcessingExtension());
 		
 		}
 		catch (NamingException e) {
