@@ -17,7 +17,7 @@ import org.apache.olingo.odata2.api.rt.RuntimeDelegate;
 
 public class MyODataServiceFactory extends ODataServiceFactory {
 	final static String MODEL_PACKAGE = "com.sap.sdc.hcp.bootcamp.odata.model";
-	
+	//final static String MODEL_PACKAGE = "org.apache.olingo.odata2.annotation.processor.ref.model";
 
 	@Override
 	public ODataService createService(ODataContext arg0) throws ODataException {
@@ -25,11 +25,12 @@ public class MyODataServiceFactory extends ODataServiceFactory {
 		//return AnnotationInstances.ANNOTATION_ODATA_SERVICE;
 		 EdmProvider edmProvider = new AnnotationEdmProvider(MODEL_PACKAGE);
 		 DataSource dataSource = new OdataDataSource();
+		// DataSource dataSource = new AnnotationInMemoryDs(MODEL_PACKAGE);
 		 ValueAccess valueAccess = new AnnotationValueAccess();
 
 		    // Edm via Annotations and ListProcessor via AnnotationDS with AnnotationsValueAccess
 		 return RuntimeDelegate.createODataSingleProcessorService(edmProvider,
-		        new ListsProcessor(dataSource, valueAccess));
+		        new CustomListsProcessor(dataSource, valueAccess));
 	}
 
 }
