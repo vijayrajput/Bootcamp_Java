@@ -86,6 +86,11 @@
 	<artifactId>olingo-odata2-annotation-processor-ref</artifactId>
 	<version>2.0.6</version>
 </dependency>
+<dependency>
+    <groupId>org.apache.olingo</groupId>
+    <artifactId>olingo-odata2-jpa-processor-core</artifactId>
+    <version>2.0.6</version>
+</dependency>
 
 		<!-- FileUpload Dependency -->
 		<dependency>

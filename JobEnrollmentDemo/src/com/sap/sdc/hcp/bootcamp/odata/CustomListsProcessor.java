@@ -147,7 +147,7 @@ public class CustomListsProcessor extends ListsProcessor {
 	        .inlineCountType(inlineCountType)
 	        .inlineCount(count)
 	        .expandSelectTree(UriParser.createExpandSelectTree(uriInfo.getSelect(), uriInfo.getExpand()))
-	        .callbacks(getCallbacks(data, entityType))
+	        .callbacks(gettombstoneCallbacks(context, uriInfo))//getCallbacks(data, entityType))
 	        .nextLink(nextLink)
 	        .build();
 
@@ -225,13 +225,14 @@ public class CustomListsProcessor extends ListsProcessor {
 	    return data;
 	  }
 
-	  private <T> Map<String, ODataCallback> getCallbacks(final T data, final EdmEntityType entityType)
+	  private <T> Map<String, ODataCallback> getCallbacks(final T data,final EdmEntityType entityType  )
 	      throws EdmException {
 	    final List<String> navigationPropertyNames = entityType.getNavigationPropertyNames();
 	    Map<String, ODataCallback> callbacks = new HashMap<String, ODataCallback>();
+	    
 	    if (navigationPropertyNames.isEmpty()) {
-	      TombstoneCallback tombstoneCallback = new  TombstomeCallbackImpl();
-		  callbacks.put(TombstoneCallback.CALLBACK_KEY_TOMBSTONE, tombstoneCallback);
+	      
+		  return null;
 	      
 	    } else {
 	      final WriteCallback callback = new WriteCallback(data);
@@ -239,12 +240,29 @@ public class CustomListsProcessor extends ListsProcessor {
 	      for (final String name : navigationPropertyNames) {
 	        callbacks.put(name, callback);
 	      }
-	      TombstoneCallback tombstoneCallback = new  TombstomeCallbackImpl();
-	      callbacks.put(TombstoneCallback.CALLBACK_KEY_TOMBSTONE, tombstoneCallback);
 	      
+	      	      
 	    }
 	    return callbacks;
 	  }
+	  
+	  private <T> Map<String, ODataCallback> gettombstoneCallbacks(final ODataContext context, final GetEntitySetUriInfo uriInfo)
+		      throws EdmException {
+		   
+		    Map<String, ODataCallback> callbacks = new HashMap<String, ODataCallback>();
+		    String baseUri = new String("");
+		    try {
+				baseUri = context.getPathInfo().getServiceRoot().toString();
+			} catch (ODataException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		    TombstoneCallback tombstoneCallback = new  TombstomeCallbackImpl(baseUri,"1234567",uriInfo);
+		    callbacks.put(TombstoneCallback.CALLBACK_KEY_TOMBSTONE, tombstoneCallback);
+		      
+		    
+		    return callbacks;
+		  }
 
 	  private class WriteCallback implements OnWriteEntryContent, OnWriteFeedContent {
 	    private final Object data;
