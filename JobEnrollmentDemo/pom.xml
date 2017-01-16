@@ -54,16 +54,16 @@
 	</build>
 	<properties>
 		<jdk.version>1.7</jdk.version>
-		<sap.hcp.sdk.version>1.103.15.2</sap.hcp.sdk.version>
-		<sap.hcp.runtime.version>1.103</sap.hcp.runtime.version>
-		<org.apache.cxf-version>3.1.6</org.apache.cxf-version>
+		<sap.hcp.sdk.version>1.118.11</sap.hcp.sdk.version>
+		<sap.hcp.runtime.version>1.118</sap.hcp.runtime.version>
+		<org.apache.cxf-version>3.1.9</org.apache.cxf-version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<sap.cloud.host>hanatrial.ondemand.com</sap.cloud.host>
 		<sap.cloud.account>i044067trial</sap.cloud.account>
-		<sap.cloud.application>google</sap.cloud.application>
-		<joda.time.version>2.9.1</joda.time.version>
-		<org.apache.olingo-version>2.0.6</org.apache.olingo-version>
-		<eclipselink-version>2.6.3</eclipselink-version>
+		<sap.cloud.application>jobs</sap.cloud.application>
+		<joda.time.version>2.9.7</joda.time.version>
+		<org.apache.olingo-version>2.0.7</org.apache.olingo-version>
+		<eclipselink-version>2.6.4</eclipselink-version>
 		<sap.cloud.datasource>DefaultDB</sap.cloud.datasource>
 		<sap.cloud.DBSchema>bootcamphana</sap.cloud.DBSchema>
 		<proxy.host>proxy</proxy.host>
