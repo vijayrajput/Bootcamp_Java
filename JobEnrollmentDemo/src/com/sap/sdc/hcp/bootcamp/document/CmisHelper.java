@@ -2,9 +2,12 @@ package com.sap.sdc.hcp.bootcamp.document;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.net.URLConnection;
+import java.util.Base64;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -13,6 +16,7 @@ import java.util.Map;
 import javax.naming.InitialContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.xml.bind.DatatypeConverter;
 
 import org.apache.chemistry.opencmis.client.api.Document;
 import org.apache.chemistry.opencmis.client.api.Folder;
@@ -25,12 +29,14 @@ import org.apache.chemistry.opencmis.commons.enums.VersioningState;
 import org.apache.chemistry.opencmis.commons.exceptions.CmisBaseException;
 import org.apache.chemistry.opencmis.commons.exceptions.CmisNameConstraintViolationException;
 import org.apache.chemistry.opencmis.commons.exceptions.CmisObjectNotFoundException;
+import org.apache.commons.codec.binary.Base64InputStream;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileItemFactory;
 import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.apache.commons.io.IOUtils;
+import org.apache.cxf.attachment.Base64DecoderStream;
 
 import com.sap.ecm.api.EcmService;
 import com.sap.ecm.api.RepositoryOptions;
@@ -332,6 +338,27 @@ public class CmisHelper {
 			} catch (FileUploadException e) {
 				e.printStackTrace();
 			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		else{
+			 try {
+				InputStream inputStream = request.getInputStream();
+				String baose64bytes = IOUtils.toString(inputStream);
+				String[] base64DataPart = baose64bytes.split(",");
+				String base64Image = base64DataPart.length == 1 ? base64DataPart[0] : base64DataPart[1];
+						
+				byte[] output = DatatypeConverter.parseBase64Binary(base64Image);
+			
+				uploadedFile = new File(path + File.separator + "temp.jpg");
+				 OutputStream outStream = new FileOutputStream(uploadedFile);
+				 outStream.write(output);
+				
+				    
+				    IOUtils.closeQuietly(inputStream);
+				    IOUtils.closeQuietly(outStream);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
