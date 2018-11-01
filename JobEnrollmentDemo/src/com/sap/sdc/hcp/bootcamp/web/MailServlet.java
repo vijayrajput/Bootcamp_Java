@@ -84,7 +84,7 @@ public class MailServlet extends HttpServlet {
 			String tofname= enrollment.getFIRST_NAME();
 			String tolname= enrollment.getLAST_NAME();
             // Parse form parameters
-            String from = "hcpdemotest@gmail.com"; //request.getParameter("fromaddress");
+            String from = "hcpdemotest1@gmail.com"; //request.getParameter("fromaddress");
            // String to = to
             String subjectText = "Interview for Job: "+jid;
             String mailText = "Hi "+ tofname+" "+ tolname+",\n"+"You have been shortlisted for interview for Job"+" "+jid;
