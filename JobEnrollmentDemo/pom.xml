@@ -1,16 +1,15 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.sap.sdc.hcp.demo</groupId>
-	<artifactId>JobEnrollmentDemo</artifactId>
-	<version>0.0.1</version>
-	<packaging>war</packaging>
-	<dependencies>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.sap.sdc.hcp.demo</groupId>
+  <artifactId>JobEnrollmentDemo</artifactId>
+  <version>0.0.1</version>
+  <packaging>war</packaging>
+  <dependencies>
 
 		<!-- SAP HCP SDK Dependency -->
 		<dependency>
 			<groupId>com.sap.cloud</groupId>
-			<artifactId>neo-java-web-api</artifactId>
+			<artifactId>neo-javaee6-wp-api</artifactId>
 			<version>${sap.hcp.sdk.version}</version>
 			<scope>provided</scope>
 		</dependency>
@@ -31,31 +30,31 @@
 
 
 	</dependencies>
-	<build>
-		<sourceDirectory>src</sourceDirectory>
-		<plugins>
-			<plugin>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.3</version>
-				<configuration>
-					<source>1.7</source>
-					<target>1.7</target>
-				</configuration>
-			</plugin>
-			<plugin>
-				<artifactId>maven-war-plugin</artifactId>
-				<version>2.6</version>
-				<configuration>
-					<warSourceDirectory>WebContent</warSourceDirectory>
-					<failOnMissingWebXml>false</failOnMissingWebXml>
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
-	<properties>
+  <build>
+    <sourceDirectory>src</sourceDirectory>
+    <plugins>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.7.0</version>
+        <configuration>
+          <source>1.7</source>
+          <target>1.7</target>
+        </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>2.6</version>
+        <configuration>
+          <warSourceDirectory>WebContent</warSourceDirectory>
+          <failOnMissingWebXml>false</failOnMissingWebXml>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+  <properties>
 		<jdk.version>1.7</jdk.version>
-		<sap.hcp.sdk.version>1.118.11</sap.hcp.sdk.version>
-		<sap.hcp.runtime.version>1.118</sap.hcp.runtime.version>
+		<sap.hcp.sdk.version>2.147.3.1</sap.hcp.sdk.version>
+		<sap.hcp.runtime.version>2.147</sap.hcp.runtime.version>
 		<org.apache.cxf-version>3.1.9</org.apache.cxf-version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<sap.cloud.host>hanatrial.ondemand.com</sap.cloud.host>
